@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { ReactFlowProvider } from 'reactflow';
+import { ThemeToggle } from './components/ThemeToggle';
 import { Toast } from './components/Toast';
+import { useTheme } from './hooks/useTheme';
 import { useJsonParser } from './hooks/useJsonParser';
 import { useToast } from './hooks/useToast';
 
 export default function App() {
-  const { parseJson } = useJsonParser();
+  const { theme, toggleTheme } = useTheme();
+  const { result, parseJson, reset } = useJsonParser();
   const { toasts, showToast, hideToast } = useToast();
   const [visualizedData, setVisualizedData] = useState<any>(null);
 
@@ -60,6 +63,7 @@ export default function App() {
             </div>
           </div>
           
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </div>
       </header>
 
@@ -68,7 +72,7 @@ export default function App() {
         {/* Left Panel - JSON Input */}
         <div className="w-1/3 min-w-[400px] border-r border-gray-300 dark:border-gray-700 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm">
           <div className="h-full p-6">
-            
+            {/* JsonInput */}
           </div>
         </div>
 
@@ -76,7 +80,7 @@ export default function App() {
         <div className="flex-1 relative">
           {visualizedData ? (
             <ReactFlowProvider>
-              
+              {/* TreeCanvas */}
             </ReactFlowProvider>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
