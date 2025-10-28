@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ReactFlowProvider } from 'reactflow';
 import { ThemeToggle } from './components/ThemeToggle';
+import { JsonInputPanel } from './components/JsonInputPanel';
 import { Toast } from './components/Toast';
 import { useTheme } from './hooks/useTheme';
 import { useJsonParser } from './hooks/useJsonParser';
@@ -14,7 +15,7 @@ export default function App() {
 
   const handleVisualize = (input: string) => {
     const parseResult = parseJson(input);
-    
+
     if (parseResult.isValid && parseResult.data) {
       setVisualizedData(parseResult.data);
       showToast('✨ JSON visualized successfully!', 'success');
@@ -62,17 +63,19 @@ export default function App() {
               </p>
             </div>
           </div>
-          
+
           <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </div>
       </header>
 
       {/* Main Content */}
       <main className="h-[calc(100vh-4rem)] flex">
-        {/* Left Panel - JSON Input */}
         <div className="w-1/3 min-w-[400px] border-r border-gray-300 dark:border-gray-700 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm">
           <div className="h-full p-6">
-            {/* JsonInput */}
+            <JsonInputPanel
+              onVisualize={handleVisualize}
+              onClear={handleClear}
+            />
           </div>
         </div>
 
@@ -100,7 +103,6 @@ export default function App() {
         </div>
       </main>
 
-      {/* Toast Notifications */}
       <Toast toasts={toasts} onClose={hideToast} />
     </div>
   );
