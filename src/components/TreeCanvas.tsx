@@ -78,8 +78,6 @@ export function TreeCanvas({ jsonData, onCopyPath, onSearchResult }: TreeCanvasP
       
       const node = nodes.find(n => n.id === foundNode.id);
       if (node) {
-        const x = node.position.x + 100;
-        const y = node.position.y + 30;
         fitView({
           nodes: [{ id: foundNode.id }],
           duration: 500,

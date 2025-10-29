@@ -8,7 +8,7 @@ interface InfoPanelProps {
   depth?: number;
 }
 
-export function InfoPanel({ nodeCount = 0, edgeCount = 0, depth = 0 }: InfoPanelProps) {
+export function InfoPanel({ nodeCount = 0, edgeCount = 0 }: InfoPanelProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
