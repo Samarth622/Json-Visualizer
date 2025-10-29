@@ -1,5 +1,5 @@
-export async function copyToClipboard(text: string): Promise<boolean> {
 
+export async function copyToClipboard(text: string): Promise<boolean> {
   if (navigator.clipboard && window.isSecureContext) {
     try {
       await navigator.clipboard.writeText(text);
@@ -9,7 +9,6 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     }
   }
 
-  
   try {
     return copyUsingExecCommand(text);
   } catch (error) {
@@ -18,9 +17,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
   }
 }
 
-
 function copyUsingExecCommand(text: string): boolean {
-
   const textarea = document.createElement('textarea');
   
   textarea.value = text;

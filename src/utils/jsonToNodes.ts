@@ -96,7 +96,6 @@ export function jsonToNodes(json: any): { nodes: Node<JsonNodeData>[]; edges: Ed
 }
 
 export function findNodeByPath(nodes: Node<JsonNodeData>[], searchPath: string): Node<JsonNodeData> | null {
-  // Normalize path (remove spaces, handle different formats)
   const normalizedSearch = searchPath.trim().replace(/\s+/g, '');
   
   return nodes.find(node => {

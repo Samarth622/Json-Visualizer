@@ -55,9 +55,9 @@ export function JsonInputPanel({ onVisualize, onClear }: JsonInputPanelProps) {
   };
 
   return (
-    <div className="flex flex-col h-full gap-4">
+    <div className="flex flex-col h-full gap-3 md:gap-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-gray-900 dark:text-gray-100">
+        <h2 className="text-sm md:text-base text-gray-900 dark:text-gray-100">
           JSON Input
         </h2>
         <div className="flex gap-2">
@@ -66,31 +66,33 @@ export function JsonInputPanel({ onVisualize, onClear }: JsonInputPanelProps) {
             whileTap={{ scale: 0.95 }}
             onClick={handleClear}
             className="
-              px-4 py-2 rounded-lg
+              px-3 py-1.5 md:px-4 md:py-2 rounded-lg
               bg-white dark:bg-gray-800
               border border-gray-300 dark:border-gray-600
               hover:bg-gray-50 dark:hover:bg-gray-700
               text-gray-700 dark:text-gray-300
               transition-colors duration-200
               flex items-center gap-2
+              text-sm
             "
           >
-            <Trash2 className="w-4 h-4" />
-            Clear
+            <Trash2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            <span className="hidden sm:inline">Clear</span>
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleVisualize}
             className="
-              px-4 py-2 rounded-lg
+              px-3 py-1.5 md:px-4 md:py-2 rounded-lg
               bg-blue-600 hover:bg-blue-700
               text-white
               transition-colors duration-200
               flex items-center gap-2
+              text-sm
             "
           >
-            <Play className="w-4 h-4" />
+            <Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
             Visualize
           </motion.button>
         </div>
@@ -103,11 +105,11 @@ export function JsonInputPanel({ onVisualize, onClear }: JsonInputPanelProps) {
           onKeyDown={handleKeyDown}
           placeholder="Paste or type your JSON here..."
           className="
-            w-full h-full p-4 rounded-lg
+            w-full h-full p-3 md:p-4 rounded-lg
             bg-white dark:bg-gray-800
             border border-gray-300 dark:border-gray-600
             focus:outline-none focus:ring-2 focus:ring-blue-500/50
-            text-gray-900 dark:text-gray-100
+            text-sm md:text-base text-gray-900 dark:text-gray-100
             placeholder:text-gray-400 dark:placeholder:text-gray-500
             font-mono
             resize-none
